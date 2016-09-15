@@ -23,13 +23,17 @@ public class main {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("pu");
         Person student1 = new Student(1, "Dennis", "Schmock", 20);
         Person emp1 = new Employee(1000, 122, "High", "Hanseman", "Lugter", 12);
-
+        Person emp2 = new Employee(1000, 122, "High", "Hanseman", "Lugter", 12);
+       
         Facade fa = new Facade(emf);
         fa.addPerson(student1);
         fa.addPerson(emp1);
+        //fa.addPerson(emp2);
         student1.setSuperVisor(emp1);
+        emp1.setSuperVisor(emp2);
+        emp1.addSuperVised(student1);
+
         fa.editPerson(emp1);
-        fa.editPerson(student1);
-        
+
     }
 }
