@@ -21,12 +21,25 @@ public class Grade implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    
+    private String name;
+    private int value;
     
     @OneToOne(mappedBy = "grade")
     private Person person;
 
+    public Grade() {
+    }
+
+    public Grade(String name, int value) {
+        this.name = name;
+        this.value = value;
+    }
+
+    
+    
     public Integer getId() {
         return id;
     }
@@ -58,6 +71,48 @@ public class Grade implements Serializable {
     @Override
     public String toString() {
         return "entity.Grade[ id=" + id + " ]";
+    }
+
+    /**
+     * @return the person
+     */
+    public Person getPerson() {
+        return person;
+    }
+
+    /**
+     * @param person the person to set
+     */
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * @return the value
+     */
+    public int getValue() {
+        return value;
+    }
+
+    /**
+     * @param value the value to set
+     */
+    public void setValue(int value) {
+        this.value = value;
     }
     
 }

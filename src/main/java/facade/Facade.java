@@ -5,6 +5,7 @@
  */
 package facade;
 
+import entity.Grade;
 import entity.Person;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -69,6 +70,21 @@ public class Facade {
         } finally {
             em.close();
         }
+    }
+    
+    public Person addGrade(Person person, Grade grade){
+        person.setGrade(grade);
+        grade.setPerson(person);
+         EntityManager em = getEntityManager();
+        try {
+           em.getTransaction().begin();
+           em.merge(person);
+           em.merge(grade);
+            em.getTransaction().commit();
+        } finally {
+            em.close();
+        }
+        return person;
     }
 
 }

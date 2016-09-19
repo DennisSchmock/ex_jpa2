@@ -176,6 +176,20 @@ public class Person implements Serializable {
         return tempString;
      }
 
+    /**
+     * @return the grade
+     */
+    public Grade getGrade() {
+        return grade;
+    }
+
+    /**
+     * @param grade the grade to set
+     */
+    public void setGrade(Grade grade) {
+        this.grade = grade;
+    }
+
     
     
 }

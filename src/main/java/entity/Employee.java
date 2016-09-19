@@ -83,7 +83,7 @@ public class Employee extends Person implements Serializable {
 
   @Override
     public String toString(){
-        String tempString = super.toString();
+        String tempString = "Employee\n" + super.toString();
         tempString += "SoSecNr: " + this.soSecNr + " Wage: " + this.wage;
         return tempString;
     }

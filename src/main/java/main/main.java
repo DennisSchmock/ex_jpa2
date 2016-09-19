@@ -6,6 +6,7 @@
 package main;
 
 import entity.Employee;
+import entity.Grade;
 import entity.Person;
 import entity.Student;
 import facade.Facade;
@@ -24,7 +25,8 @@ public class main {
         Person student1 = new Student(1, "Dennis", "Schmock", 20);
         Person emp1 = new Employee(1000, 122, "High", "Hanseman", "Lugter", 12);
         Person emp2 = new Employee(1000, 122, "High", "Hanseman", "Lugter", 12);
-       
+        Grade gr1 = new Grade("Math", 12);
+        Grade gr2 = new Grade("Science", 0);
         Facade fa = new Facade(emf);
         fa.addPerson(student1);
         fa.addPerson(emp1);
@@ -32,8 +34,12 @@ public class main {
         student1.setSuperVisor(emp1);
         emp1.setSuperVisor(emp2);
         emp1.addSuperVised(student1);
+        fa.addGrade(student1, gr1);
 
         fa.editPerson(emp1);
+        
+        System.out.println(emp1);
+        System.out.println(student1);
 
     }
 }
